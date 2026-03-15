@@ -12,4 +12,13 @@ function foodsrecipes_register_menus() {
     ));
 }
 add_action('after_setup_theme', 'foodsrecipes_register_menus');
+
+function mytheme_setup() {
+
+    add_theme_support('post-thumbnails');
+
+}
+
+add_action('after_setup_theme', 'mytheme_setup');
+
 ?>

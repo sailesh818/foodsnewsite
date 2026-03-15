@@ -16,20 +16,16 @@
         <div class="header-left">
             <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="Logo" class="logo">
             <div class="header-text">
-                <span class="main-text">Thursday</span>
+                <span class="main-text"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></span>
             </div>
         </div>
-
         <!-- RIGHT SIDE: Login & Enquiry -->
         <div class="header-right">
             <a href="#" class="header-link">Login</a>
             <a href="#" class="header-link">Enquiry</a>
         </div>
     </div>
-    
-</div>
-    
-    
+    <!-- // this website is here now -->
     <?php
 wp_nav_menu(array(
     'theme_location' => 'primary-menu',
@@ -37,3 +33,4 @@ wp_nav_menu(array(
     'menu_class' => 'header-menu'
 ));
 ?>
+</div>

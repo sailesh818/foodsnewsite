@@ -1,30 +1,33 @@
 <?php get_header(); ?>
-
 <div class="category-page">
     <h1><?php single_cat_title(); ?></h1>
-
+    <div class="posts-grid">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
-            <div class="post-item">
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <p><?php the_excerpt(); ?></p>
-                <p><?php the_time('F jS, Y') ?> by <?php the_author(); ?></p>
-                <a href="<?php the_permalink(); ?>">Read more</a>
-            </div>
+
+        <div class="post-card">
+            <a href="<?php the_permalink(); ?>">
+
+                <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('medium'); ?>
+                <?php endif; ?>
+                <h3 class="post-title">
+                    <?php the_title(); ?>
+                </h3>
+
+            </a>
+        </div>
+
         <?php endwhile; ?>
 
-        <!-- Pagination -->
-        <div class="pagination">
-            <?php
-            echo paginate_links(array(
-                'total' => $wp_query->max_num_pages
-            ));
-            ?>
-        </div>
+    </div>
+
+        
 
     <?php else : ?>
         <p>No posts found in this category.</p>
     <?php endif; ?>
+
 </div>
 
 <?php get_footer(); ?>
